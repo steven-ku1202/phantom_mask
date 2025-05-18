@@ -1,0 +1,73 @@
+# === macOS 系統檔案 ===
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# === Python 快取與中間檔 ===
+__pycache__/
+*.py[cod]
+*$py.class
+
+# === Python 虛擬環境 ===
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+
+# === VSCode 設定（若有使用） ===
+.vscode/
+
+# === JetBrains (PyCharm 等) ===
+.idea/
+
+# === 測試與 coverage ===
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.pytest_cache/
+test-output/
+
+# === Notebook 檔案快取（若有） ===
+.ipynb_checkpoints
+
+# === 日誌檔與暫存檔 ===
+*.log
+*.tmp
+*.bak
+*.old
+*.orig
+*.swp
+
+# === SQLite 本地資料庫（排除 *.db）===
+*.sqlite3
+*.db
+
+# === Docker 相關檔案（建議忽略 override/local 變體）===
+docker-compose.override.yml
+.docker/
+*.pid
+*.tar
+
+# === 型別檢查工具（mypy, pytype, etc.）===
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# === 機密與環境變數設定（保留範例檔）===
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+
+# 保留這個檔案作為範例
+!.env.example
