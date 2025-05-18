@@ -1,0 +1,12 @@
+pandas == 2.2.3
+numpy == 2.2.6
+matplotlib == 3.10.3
+seaborn == 0.13.2
+
+fastapi == 0.115.12
+uvicorn == 0.34.2
+
+SQLAlchemy == 2.0.41
+sqlalchemy[asyncio]
+asyncpg == 0.30.0
+python-dotenv == 1.1.0

@@ -5,6 +5,7 @@
 
 # === Python 快取與中間檔 ===
 __pycache__/
+*.pyc
 *.py[cod]
 *$py.class
 
