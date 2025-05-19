@@ -1,16 +1,17 @@
 import os
 import json
 import asyncio
-from db.database import engine, async_session
-from db.models import Base, Pharmacy, Mask, User, PurchaseHistory
+from app.db.database import engine, async_session
+from app.db.models import Base, Pharmacy, Mask, User, PurchaseHistory
 from datetime import datetime
 
-# 獲得專案根目錄的絕對路徑
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_PATH_pharmacies = os.path.join(BASE_DIR, "data", "pharmacies.json")
-DATA_PATH_users = os.path.join(BASE_DIR, "data", "users.json")
 
 async def init_db():
+    # 獲得專案根目錄的絕對路徑
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    DATA_PATH_pharmacies = os.path.join(BASE_DIR, "data", "pharmacies.json")
+    DATA_PATH_users = os.path.join(BASE_DIR, "data", "users.json")
+
     # 建立資料表
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)

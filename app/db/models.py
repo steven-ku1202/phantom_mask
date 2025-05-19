@@ -11,7 +11,7 @@ class Pharmacy(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
-    opening_hours = Column(JSONB, nullable=False)  # 儲存每週每日開店時間的 JSON 格式
+    opening_hours = Column(String, nullable=False)
     cash_balance = Column(Float, default=0.0)
 
     masks = relationship("Mask", back_populates="pharmacy")
