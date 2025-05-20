@@ -10,3 +10,5 @@ SQLAlchemy == 2.0.41
 sqlalchemy[asyncio]
 asyncpg == 0.30.0
 python-dotenv == 1.1.0
+
+psycopg2-binary

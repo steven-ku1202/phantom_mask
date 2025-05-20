@@ -5,7 +5,7 @@ from sqlalchemy.future import select
 from sqlalchemy import text
 from contextlib import asynccontextmanager
 from app.db.models import Pharmacy
-from app.init_db import init_db
+from app.etl import loader
 
 from app.api import pharmacies_open
 from app.api import pharmacies_mask_sort 
@@ -20,7 +20,7 @@ from app.api import purchase
 async def lifespan(app: FastAPI):
     async with async_session() as session:
         # 先初始化資料表（不查詢前保證表存在）
-        await init_db()
+        await loader.init_db()
 
         # 再查是否有資料
         result = await session.execute(select(Pharmacy))
@@ -39,7 +39,7 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# 1. 掛載 router
+# 掛載 router
 app.include_router(pharmacies_open.router)
 app.include_router(pharmacies_mask_sort.router)
 app.include_router(pharmacies_mask_filter.router)
