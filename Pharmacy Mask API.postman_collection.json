@@ -1,0 +1,1973 @@
+{
+	"info": {
+		"_postman_id": "81c1f8ab-3e84-4ecd-8fc7-261e490e54bc",
+		"name": "Pharmacy Mask API",
+		"description": "支援藥局查詢、口罩銷售與購買管理的 API 伺服器",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45120182",
+		"_collection_link": "https://stevenku-7364926.postman.co/workspace/Steven-Ku's-Workspace~25cde7e0-4fe6-47b1-8242-21605a3003d3/collection/45120182-81c1f8ab-3e84-4ecd-8fc7-261e490e54bc?action=share&source=collection_link&creator=45120182"
+	},
+	"item": [
+		{
+			"name": "pharmacies",
+			"item": [
+				{
+					"name": "Get Open Pharmacies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/pharmacies/open?hour=08&minute=30&weekday=Fri",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pharmacies",
+								"open"
+							],
+							"query": [
+								{
+									"key": "hour",
+									"value": "08",
+									"description": "查詢小時(若未指定，則取當前系統小時)"
+								},
+								{
+									"key": "minute",
+									"value": "30",
+									"description": "查詢分鐘(若未指定，則取當前系統分鐘)"
+								},
+								{
+									"key": "weekday",
+									"value": "Fri",
+									"description": "查詢星期(若未指定，則取當前系統星期)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/open?hour=08&minute=30&weekday=Fri",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"open"
+									],
+									"query": [
+										{
+											"key": "hour",
+											"value": "08"
+										},
+										{
+											"key": "minute",
+											"value": "30"
+										},
+										{
+											"key": "weekday",
+											"value": "Fri"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"non deserunt nostrud cillum\",\n        \"in dolore aliquip sed\"\n      ],\n      \"msg\": \"ut et nostrud anim\",\n      \"type\": \"eiusmod commodo Excepteur\"\n    },\n    {\n      \"loc\": [\n        \"e\",\n        \"eiusmod dolore sit qui consequat\"\n      ],\n      \"msg\": \"aliqua aute\",\n      \"type\": \"sit\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/open?hour=08&minute=30&weekday=Fri",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"open"
+									],
+									"query": [
+										{
+											"key": "hour",
+											"value": "08",
+											"description": "查詢小時(若未指定，則取當前系統小時)"
+										},
+										{
+											"key": "minute",
+											"value": "30",
+											"description": "查詢分鐘(若未指定，則取當前系統分鐘)"
+										},
+										{
+											"key": "weekday",
+											"value": "Fri",
+											"description": "查詢星期(若未指定，則取當前系統星期)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:16:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "217"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "9e879f6a-9e4d-40d2"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b14204ddc4a88-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"time\": \"08:30\",\n    \"weekday\": \"Fri\",\n    \"open_pharmacies\": [\n        \"DFW Wellness\",\n        \"Carepoint\",\n        \"First Care Rx\",\n        \"Welltrack\",\n        \"Prescription Hope\",\n        \"Health Mart\",\n        \"Health Warehouse\",\n        \"First Pharmacy\",\n        \"Centrico\",\n        \"Below Drug\",\n        \"Medlife\",\n        \"HealthMart\",\n        \"RX Universal\",\n        \"Health Element\",\n        \"Blink Health\",\n        \"Acculife Drug Stores\",\n        \"Cool Pharmacy Names\"\n    ]\n}"
+						},
+						{
+							"name": "No Params (System Time)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/open",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"open"
+									],
+									"query": [
+										{
+											"key": "hour",
+											"value": "",
+											"description": "查詢小時(若未指定，則取當前系統小時)",
+											"disabled": true
+										},
+										{
+											"key": "minute",
+											"value": "",
+											"description": "查詢分鐘(若未指定，則取當前系統分鐘)",
+											"disabled": true
+										},
+										{
+											"key": "weekday",
+											"value": "",
+											"description": "查詢星期(若未指定，則取當前系統星期)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:20:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "334c2b12-fb3d-49dc"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b1a6fa8514a82-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"time\": \"18:20\",\n    \"weekday\": \"Tue\",\n    \"open_pharmacies\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Pharmacy Masks Sort",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/pharmacies/masks?pharmacy_id=-53333841&sort_by=name&order=ascending",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pharmacies",
+								"masks"
+							],
+							"query": [
+								{
+									"key": "pharmacy_id",
+									"value": "-53333841",
+									"description": "(Required) 藥局id (ex:1)"
+								},
+								{
+									"key": "sort_by",
+									"value": "name",
+									"description": "依（名稱、價格）排序"
+								},
+								{
+									"key": "order",
+									"value": "ascending",
+									"description": "升冪或降冪"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/masks?pharmacy_id=-53333841&sort_by=name&order=ascending",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"masks"
+									],
+									"query": [
+										{
+											"key": "pharmacy_id",
+											"value": "-53333841"
+										},
+										{
+											"key": "sort_by",
+											"value": "name"
+										},
+										{
+											"key": "order",
+											"value": "ascending"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						},
+						{
+							"name": "Validation Error (no params)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/masks?pharmacy_id=-53333841&sort_by=name&order=ascending",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"masks"
+									],
+									"query": [
+										{
+											"key": "pharmacy_id",
+											"value": "-53333841"
+										},
+										{
+											"key": "sort_by",
+											"value": "name"
+										},
+										{
+											"key": "order",
+											"value": "ascending"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"non deserunt nostrud cillum\",\n        \"in dolore aliquip sed\"\n      ],\n      \"msg\": \"ut et nostrud anim\",\n      \"type\": \"eiusmod commodo Excepteur\"\n    },\n    {\n      \"loc\": [\n        \"e\",\n        \"eiusmod dolore sit qui consequat\"\n      ],\n      \"msg\": \"aliqua aute\",\n      \"type\": \"sit\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/masks?pharmacy_id=1&sort_by=price&order=descending",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"masks"
+									],
+									"query": [
+										{
+											"key": "pharmacy_id",
+											"value": "1",
+											"description": "(Required) 藥局id (ex:1)"
+										},
+										{
+											"key": "sort_by",
+											"value": "price",
+											"description": "依（名稱、價格）排序"
+										},
+										{
+											"key": "order",
+											"value": "descending",
+											"description": "升冪或降冪"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:22:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "195"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "6613d9c9-7eed-41fd"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b1d5f9c623138-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"pharmacy_id\": 1,\n    \"pharmacy_name\": \"DFW Wellness\",\n    \"sort_by\": \"price\",\n    \"order\": \"descending\",\n    \"masks\": [\n        {\n            \"name\": \"MaskT (green) (10 per pack)\",\n            \"price\": 41.86\n        },\n        {\n            \"name\": \"Second Smile (black) (10 per pack)\",\n            \"price\": 31.98\n        },\n        {\n            \"name\": \"True Barrier (green) (3 per pack)\",\n            \"price\": 13.7\n        },\n        {\n            \"name\": \"Masquerade (green) (3 per pack)\",\n            \"price\": 9.4\n        },\n        {\n            \"name\": \"Second Smile (black) (3 per pack)\",\n            \"price\": 5.84\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter Pharmacies By Mask Count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/pharmacies/filter-mask-price?min_price=32149860.685131792&max_price=83877804.59633636&threshold=-19283621&comparison=fewer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pharmacies",
+								"filter-mask-price"
+							],
+							"query": [
+								{
+									"key": "min_price",
+									"value": "32149860.685131792",
+									"description": "(Required) 設定價格下限"
+								},
+								{
+									"key": "max_price",
+									"value": "83877804.59633636",
+									"description": "(Required) 設定價格上限"
+								},
+								{
+									"key": "threshold",
+									"value": "-19283621",
+									"description": "(Required) 設定口罩數量的門檻"
+								},
+								{
+									"key": "comparison",
+									"value": "fewer",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/filter-mask-price?min_price=32149860.685131792&max_price=83877804.59633636&threshold=-19283621&comparison=fewer",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"filter-mask-price"
+									],
+									"query": [
+										{
+											"key": "min_price",
+											"value": "32149860.685131792"
+										},
+										{
+											"key": "max_price",
+											"value": "83877804.59633636"
+										},
+										{
+											"key": "threshold",
+											"value": "-19283621"
+										},
+										{
+											"key": "comparison",
+											"value": "fewer"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/filter-mask-price?min_price=32149860.685131792&max_price=83877804.59633636&threshold=-19283621&comparison=fewer",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"filter-mask-price"
+									],
+									"query": [
+										{
+											"key": "min_price",
+											"value": "32149860.685131792"
+										},
+										{
+											"key": "max_price",
+											"value": "83877804.59633636"
+										},
+										{
+											"key": "threshold",
+											"value": "-19283621"
+										},
+										{
+											"key": "comparison",
+											"value": "fewer"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"non deserunt nostrud cillum\",\n        \"in dolore aliquip sed\"\n      ],\n      \"msg\": \"ut et nostrud anim\",\n      \"type\": \"eiusmod commodo Excepteur\"\n    },\n    {\n      \"loc\": [\n        \"e\",\n        \"eiusmod dolore sit qui consequat\"\n      ],\n      \"msg\": \"aliqua aute\",\n      \"type\": \"sit\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pharmacies/filter-mask-price?min_price=0&max_price=30&threshold=5&comparison=more",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pharmacies",
+										"filter-mask-price"
+									],
+									"query": [
+										{
+											"key": "min_price",
+											"value": "0",
+											"description": "(Required) 設定價格下限"
+										},
+										{
+											"key": "max_price",
+											"value": "30",
+											"description": "(Required) 設定價格上限"
+										},
+										{
+											"key": "threshold",
+											"value": "5",
+											"description": "(Required) 設定口罩數量的門檻"
+										},
+										{
+											"key": "comparison",
+											"value": "more",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:34:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "477667db-bbab-4e92"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b2e32beff4a2e-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 4,\n        \"name\": \"Welltrack\",\n        \"mask_count\": 5\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Below Drug\",\n        \"mask_count\": 6\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Keystone Pharmacy\",\n        \"mask_count\": 7\n    },\n    {\n        \"id\": 11,\n        \"name\": \"Medlife\",\n        \"mask_count\": 5\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Centrico\",\n        \"mask_count\": 8\n    },\n    {\n        \"id\": 15,\n        \"name\": \"HealthMart\",\n        \"mask_count\": 5\n    },\n    {\n        \"id\": 3,\n        \"name\": \"First Care Rx\",\n        \"mask_count\": 5\n    },\n    {\n        \"id\": 20,\n        \"name\": \"Cool Pharmacy Names\",\n        \"mask_count\": 6\n    },\n    {\n        \"id\": 18,\n        \"name\": \"Blink Health\",\n        \"mask_count\": 6\n    },\n    {\n        \"id\": 8,\n        \"name\": \"First Pharmacy\",\n        \"mask_count\": 5\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Purchase Mask",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pharmacy_id\": -77335558,\n  \"mask_id\": 76816410,\n  \"Date\": \"1964-07-23T09:58:38.949Z\",\n  \"user_id\": -15139422\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"pharmacy_id\": 1,\n  \"mask_id\": 1,\n  \"Date\": \"1964-07-23T09:58:38.949Z\",\n  \"user_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:30:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "f057506a-8d83-4bab"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b2951faac8412-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"購買成功\",\n    \"user\": \"Yvonne Guerrero\",\n    \"mask\": \"True Barrier (green) (3 per pack)\",\n    \"pharmacy\": \"DFW Wellness\",\n    \"Amount\": 13.7,\n    \"Date\": \"2025-05-20 10:30:55\"\n}"
+						},
+						{
+							"name": "No user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"pharmacy_id\": 1,\n  \"mask_id\": 1,\n  \"Date\": \"1964-07-23T09:58:38.949Z\",\n  \"user_id\": -1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:31:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "e0c205e0-383f-47bd"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b29d4bf958412-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"使用者不存在\"\n}"
+						},
+						{
+							"name": "No mask",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"pharmacy_id\": 1,\n  \"mask_id\": -1,\n  \"Date\": \"1964-07-23T09:58:38.949Z\",\n  \"user_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:32:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "31d6b724-93f1-4edd"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b2b5f9e5d4a6a-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"口罩不存在\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Top Users By Transaction Count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/top-users-by-transaction-amount?start_date=culpa Lorem id proident&end_date=id&top_n=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"top-users-by-transaction-amount"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "culpa Lorem id proident",
+									"description": "起始日期, 格式: YYYY-MM-DD"
+								},
+								{
+									"key": "end_date",
+									"value": "id",
+									"description": "結束日期, 格式: YYYY-MM-DD"
+								},
+								{
+									"key": "top_n",
+									"value": "5",
+									"description": "名次設定 (預設:5)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/top-users-by-transaction-amount?start_date=2021-01-02&end_date=2021-01-10&top_n=5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"top-users-by-transaction-amount"
+									],
+									"query": [
+										{
+											"key": "start_date",
+											"value": "2021-01-02",
+											"description": "起始日期, 格式: YYYY-MM-DD"
+										},
+										{
+											"key": "end_date",
+											"value": "2021-01-10",
+											"description": "結束日期, 格式: YYYY-MM-DD"
+										},
+										{
+											"key": "top_n",
+											"value": "5",
+											"description": "名次設定 (預設:5)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:35:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "957c8cca-39ff-4505"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b2fd8adc9a39f-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"user_id\": 17,\n        \"name\": \"Wilbert Love\",\n        \"transaction_count\": 4\n    },\n    {\n        \"user_id\": 8,\n        \"name\": \"Timothy Schultz\",\n        \"transaction_count\": 3\n    },\n    {\n        \"user_id\": 12,\n        \"name\": \"Robyn Wilson\",\n        \"transaction_count\": 3\n    },\n    {\n        \"user_id\": 9,\n        \"name\": \"Marilyn Cruz\",\n        \"transaction_count\": 3\n    },\n    {\n        \"user_id\": 3,\n        \"name\": \"Geneva Floyd\",\n        \"transaction_count\": 2\n    }\n]"
+						},
+						{
+							"name": "Invalid date format",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/top-users-by-transaction-amount?start_date=2021/01/02&end_date=2021/01/10&top_n=5",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"top-users-by-transaction-amount"
+									],
+									"query": [
+										{
+											"key": "start_date",
+											"value": "2021/01/02",
+											"description": "起始日期, 格式: YYYY-MM-DD"
+										},
+										{
+											"key": "end_date",
+											"value": "2021/01/10",
+											"description": "結束日期, 格式: YYYY-MM-DD"
+										},
+										{
+											"key": "top_n",
+											"value": "5",
+											"description": "名次設定 (預設:5)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:36:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "433ad6f4-1b8a-433f"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b31985f6f8463-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid date format, should be YYYY-MM-DD\"\n}"
+						},
+						{
+							"name": "No Params",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/top-users-by-transaction-amount",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"top-users-by-transaction-amount"
+									],
+									"query": [
+										{
+											"key": "start_date",
+											"value": "2021/01/02",
+											"description": "起始日期, 格式: YYYY-MM-DD",
+											"disabled": true
+										},
+										{
+											"key": "end_date",
+											"value": "2021/01/10",
+											"description": "結束日期, 格式: YYYY-MM-DD",
+											"disabled": true
+										},
+										{
+											"key": "top_n",
+											"value": "5",
+											"description": "名次設定 (預設:5)",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 20 May 2025 10:37:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "rndr-id",
+									"value": "f0252f12-a202-4497"
+								},
+								{
+									"key": "vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "uvicorn"
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "942b32988c7d8463-TPE"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"user_id\": 1,\n        \"name\": \"Yvonne Guerrero\",\n        \"transaction_count\": 13\n    },\n    {\n        \"user_id\": 3,\n        \"name\": \"Geneva Floyd\",\n        \"transaction_count\": 9\n    },\n    {\n        \"user_id\": 9,\n        \"name\": \"Marilyn Cruz\",\n        \"transaction_count\": 9\n    },\n    {\n        \"user_id\": 17,\n        \"name\": \"Wilbert Love\",\n        \"transaction_count\": 9\n    },\n    {\n        \"user_id\": 8,\n        \"name\": \"Timothy Schultz\",\n        \"transaction_count\": 9\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Root",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sales Summary",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/sales/sales-summary?start_date=culpa Lorem id proident&end_date=id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sales",
+						"sales-summary"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "culpa Lorem id proident",
+							"description": "起始日期, 格式: YYYY-MM-DD"
+						},
+						{
+							"key": "end_date",
+							"value": "id",
+							"description": "結束日期, 格式: YYYY-MM-DD"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "No Params",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sales/sales-summary",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sales",
+								"sales-summary"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "culpa Lorem id proident",
+									"description": "起始日期, 格式: YYYY-MM-DD",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "id",
+									"description": "結束日期, 格式: YYYY-MM-DD",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 10:38:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "rndr-id",
+							"value": "2d219224-6fcc-4814"
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "cf-cache-status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "942b3408c85f8463-TPE"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"total_mask_sales\": 107,\n    \"total_transaction_value\": 1945.42\n}"
+				},
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sales/sales-summary?start_date=2021-01-06&end_date=2021-01-25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sales",
+								"sales-summary"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2021-01-06",
+									"description": "起始日期, 格式: YYYY-MM-DD"
+								},
+								{
+									"key": "end_date",
+									"value": "2021-01-25",
+									"description": "結束日期, 格式: YYYY-MM-DD"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 10:39:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "rndr-id",
+							"value": "93117883-bb79-4800"
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "cf-cache-status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "942b3678cafa40ff-TPE"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"total_mask_sales\": 70,\n    \"total_transaction_value\": 1282.94\n}"
+				},
+				{
+					"name": "Invalid date format",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/sales/sales-summary?start_date=2021.01.06&end_date=2021.01.25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sales",
+								"sales-summary"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2021.01.06",
+									"description": "起始日期, 格式: YYYY-MM-DD"
+								},
+								{
+									"key": "end_date",
+									"value": "2021.01.25",
+									"description": "結束日期, 格式: YYYY-MM-DD"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 10:40:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "rndr-id",
+							"value": "045ef783-f8cc-415a"
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "cf-cache-status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "942b371dd82940ff-TPE"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Invalid date format, should be YYYY-MM-DD\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Relevance Search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/search/?keyword=ea&target=all&limit=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "ea",
+							"description": "(Required) "
+						},
+						{
+							"key": "target",
+							"value": "all",
+							"description": "搜尋對象"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "搜尋資料筆數"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/search/?keyword=ea&target=all&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "ea"
+								},
+								{
+									"key": "target",
+									"value": "all"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{}"
+				},
+				{
+					"name": "Validation Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/search/?keyword=ea&target=all&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "ea"
+								},
+								{
+									"key": "target",
+									"value": "all"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"non deserunt nostrud cillum\",\n        \"in dolore aliquip sed\"\n      ],\n      \"msg\": \"ut et nostrud anim\",\n      \"type\": \"eiusmod commodo Excepteur\"\n    },\n    {\n      \"loc\": [\n        \"e\",\n        \"eiusmod dolore sit qui consequat\"\n      ],\n      \"msg\": \"aliqua aute\",\n      \"type\": \"sit\"\n    }\n  ]\n}"
+				},
+				{
+					"name": "Successful Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/search/?keyword=her&target=all&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "her",
+									"description": "(Required) "
+								},
+								{
+									"key": "target",
+									"value": "all",
+									"description": "搜尋對象"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "搜尋資料筆數"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 10:58:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "rndr-id",
+							"value": "ef0662e3-7a9e-44ce"
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "cf-cache-status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "942b514c990b8457-TPE"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"type\": \"pharmacy\",\n        \"id\": 15,\n        \"name\": \"HealthMart\",\n        \"relevance\": 0.1538\n    },\n    {\n        \"type\": \"pharmacy\",\n        \"id\": 6,\n        \"name\": \"Health Mart\",\n        \"relevance\": 0.1429\n    },\n    {\n        \"type\": \"pharmacy\",\n        \"id\": 18,\n        \"name\": \"Blink Health\",\n        \"relevance\": 0.1333\n    },\n    {\n        \"type\": \"pharmacy\",\n        \"id\": 17,\n        \"name\": \"Health Element\",\n        \"relevance\": 0.1176\n    },\n    {\n        \"type\": \"pharmacy\",\n        \"id\": 7,\n        \"name\": \"Health Warehouse\",\n        \"relevance\": 0.1053\n    }\n]"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
