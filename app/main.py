@@ -39,6 +39,10 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+@app.get("/")
+async def root():
+    return {"message": "API is up and running!"}
+
 # 掛載 router
 app.include_router(pharmacies_open.router)
 app.include_router(pharmacies_mask_sort.router)
