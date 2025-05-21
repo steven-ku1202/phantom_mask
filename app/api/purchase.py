@@ -24,7 +24,7 @@ async def purchase_mask(purchase: PurchaseCreate, db: AsyncSession = Depends(get
         raise HTTPException(404, detail="口罩不存在")
 
     # 查找藥局
-    pharmacy = await db.get(Pharmacy, mask.pharmacy_id)
+    pharmacy = await db.get(Pharmacy, purchase.pharmacy_id)
     if not pharmacy:
         raise HTTPException(404, detail="藥局不存在")
 

@@ -1,10 +1,10 @@
 # app/main.py
 from fastapi import FastAPI
-from app.db.database import async_session
+from app.db.database import async_session, engine
 from sqlalchemy.future import select
 from sqlalchemy import text
 from contextlib import asynccontextmanager
-from app.db.models import Pharmacy
+from app.db.models import Base, Pharmacy
 from app.etl import loader
 
 from app.api import pharmacies_open
@@ -20,13 +20,16 @@ from app.api import purchase
 async def lifespan(app: FastAPI):
     async with async_session() as session:
         # 先初始化資料表（不查詢前保證表存在）
-        await loader.init_db()
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
 
         # 再查是否有資料
         result = await session.execute(select(Pharmacy))
         pharmacies = result.scalars().all()
         if not pharmacies:
+            await loader.init_db()
             print("資料庫為空，初始資料未填寫")
+            print("資料已導入")
         else:
             print("資料庫有資料，已初始化完成")
     yield

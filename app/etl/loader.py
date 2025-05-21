@@ -15,7 +15,6 @@ async def init_db():
 
     # 建立資料表
     async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)   # 如果'表'不存在，就會建立；如果已存在，不會重建
 
     # 載入 pharmacies JSON
