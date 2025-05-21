@@ -24,7 +24,7 @@ This project is a backend API server built with <ins>**FastAPI**</ins> and <ins>
 > {baseURL} = http://127.0.0.1:8000  
 > <sup>*</sup> mean params is required
 
-1. ***Get_Open_Pharmacies*** API  [GET]
+1. ***Get_Open_Pharmacies*** API:  [[code](app/api/pharmacies_open.py)] 
    - `{baseURL}/pharmacies/open`
    - params: hour(str), minute(str),weekday(str)
    - return example:
@@ -35,7 +35,7 @@ This project is a backend API server built with <ins>**FastAPI**</ins> and <ins>
       "open_pharmacies": []
      }
      ```
-2. ***Get_Pharmacy_Masks_Sort*** API  [GET]
+2. ***Get_Pharmacy_Masks_Sort*** API:  [[code](app/api/pharmacies_mask_sort.py)]
    - `{baseURL}/pharmacies/masks`
    - params: <sup>*</sup>pharmacy_id(int), sort_by(str), order(str)
    - return example:
@@ -62,7 +62,7 @@ This project is a backend API server built with <ins>**FastAPI**</ins> and <ins>
       }
      ```
      
-3. ***Filter_Pharmacies_By_Mask_Count*** API [GET]
+3. ***Filter_Pharmacies_By_Mask_Count*** API:  [[code](app/api/pharmacies_mask_filter.py)]
    - `{baseURL}/pharmacies/filter-mask-price`
    -  params: <sup>*</sup>min_price(float), <sup>*</sup>max_price(float), <sup>*</sup>threshold(int), <sup>*</sup>comparison(str)
    -  return example:
@@ -80,7 +80,7 @@ This project is a backend API server built with <ins>**FastAPI**</ins> and <ins>
         }
       ]
       ```
-4. ***Get_Top_Users_By_Transaction_Count*** API  [GET]
+4. ***Get_Top_Users_By_Transaction_Count*** API:  [[code](app/api/users_transaction_top.py)]
    - `{baseURL}/users/top-users-by-transaction-amount`
    - params: start_date(str), end_date(str), top_n(int)
    - return example:
@@ -98,7 +98,7 @@ This project is a backend API server built with <ins>**FastAPI**</ins> and <ins>
         }
       ]
      ```
-5. ***Get_Sales_Summary*** API  [GET]
+5. ***Get_Sales_Summary*** API:  [[code](app/api/sales_summary.py)]
    - `{baseURL}/sales/sales-summary`
    - params: start_date(str), end_date(str)
    - return example:
@@ -108,7 +108,7 @@ This project is a backend API server built with <ins>**FastAPI**</ins> and <ins>
         "total_transaction_value": 1945.42
       }
      ```
-6. ***Relevance_Search*** API  [GET]
+6. ***Relevance_Search*** API:  [[code](app/api/relevance_search.py)]
    - `{baseURL}/search/`
    - params: <sup>*</sup>keyword(str), target(str), limit(int)
    - return example:
@@ -134,7 +134,7 @@ This project is a backend API server built with <ins>**FastAPI**</ins> and <ins>
         }
       ]
      ```
-7. ***Purchase_Mask*** API  [POST]
+7. ***Purchase_Mask*** API:  [[code](app/api/purchase.py)]
    - `{baseURL}/users/`
    - body example:
      ```json
@@ -188,7 +188,7 @@ $ docker ps -a
 ```bash
 $ pip install -r requirements.txt
 ```
-使用支援ASGI協議的Uvicorn啟動網頁伺服器：
+使用支援ASGI協議的**Uvicorn**啟動網頁伺服器：
 ```bash
 $ uvicorn app.main:app --reload
 ```
@@ -204,7 +204,9 @@ INFO:     127.0.0.1:62030 - "GET /docs HTTP/1.1" 200 OK
 {"message":"API is up and running!"}
 ```
 
-最後，FastAPI 內建提供了 Swagger UI 位於 (http://127.0.0.1:8000/docs) ，會根據寫的程式（路由、參數、Schema）自動產生 API 測試介面。
+最後，FastAPI 內建提供了 **Swagger UI** 位於 (http://127.0.0.1:8000/docs) ，會根據寫的程式（路由、參數）自動產生 API 測試介面。
+
+> 額外提供一份以 **Postman** 匯出的 API 測試集合檔  [JSON](PharmacyAPI-postman_collection.json)，涵蓋本專案所有核心功能 API 的 Successful Response 及錯誤格式範例，供測試人員匯入 Postman 驗證使用。
 
 
 ### A.4. Project Path Structure
@@ -213,6 +215,7 @@ INFO:     127.0.0.1:62030 - "GET /docs HTTP/1.1" 200 OK
 ```bash
 .
 ├── .gitignore                           # Git忽略清單，排除 .env, .DS_Store, *.pyc 等敏感或暫存檔案
+├── PharmacyAPI-postman_collection.json  # Postman API 測試集合匯出檔
 ├── README.md
 ├── app
 │   ├── api                              # API router 各功能實現
@@ -244,7 +247,7 @@ INFO:     127.0.0.1:62030 - "GET /docs HTTP/1.1" 200 OK
 ├── requirements.txt                    # Python 相依套件清單，供 pip 安裝使用
 └── response.md
 
-8 directories, 24 files
+8 directories, 25 files
 ```
 
 
@@ -282,5 +285,7 @@ $ \dt
 若您無法成功在本機運行此專案，可點擊網址 [[Render](https://phantom-mask-h7k4.onrender.com)]
 
 The **FastAPI Swagger UI** demo site is ready on (https://phantom-mask-h7k4.onrender.com/docs#/); you can try any APIs on this demo site.
+
+> ❗️ Free instance will spin down with inactivity, which can delay requests by 50 seconds or more.
 
 - --
